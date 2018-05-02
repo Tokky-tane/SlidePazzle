@@ -13,5 +13,9 @@ namespace SlidePazzle
 		{
 			InitializeComponent();
 		}
+
+        void OnPanelTapped(object sender,EventArgs eventArgs)
+        {
+        }
 	}
 }

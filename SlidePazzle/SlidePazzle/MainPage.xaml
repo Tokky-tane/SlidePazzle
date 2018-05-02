@@ -20,7 +20,11 @@
         </Grid.ColumnDefinitions>
 
         <Image Source="{local:ImageResource SlidePazzle.Images.01.png}"
-               Grid.Row="0" Grid.Column="0"/>
+               Grid.Row="0" Grid.Column="0">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnPanelTapped"/>
+            </Image.GestureRecognizers>
+        </Image>
 
         <Image Source="{local:ImageResource SlidePazzle.Images.02.png}"
                Grid.Row="0" Grid.Column="1"/>
