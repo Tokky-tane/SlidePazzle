@@ -4,8 +4,67 @@
              xmlns:local="clr-namespace:SlidePazzle"
              x:Class="SlidePazzle.MainPage">
 
-	<Label Text="Welcome to Xamarin.Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Source="{local:ImageResource SlidePazzle.Images.01.png}"
+               Grid.Row="0" Grid.Column="0"/>
+
+        <Image Source="{local:ImageResource SlidePazzle.Images.02.png}"
+               Grid.Row="0" Grid.Column="1"/>
+
+        <Image Source="{local:ImageResource SlidePazzle.Images.03.png}"
+               Grid.Row="0" Grid.Column="2"/>
+
+        <Image Source="{local:ImageResource SlidePazzle.Images.04.png}"
+               Grid.Row="0" Grid.Column="3"/>
+
+        <Image Source="{local:ImageResource SlidePazzle.Images.05.png}"
+               Grid.Row="1" Grid.Column="0"/>
+
+        <Image Source="{local:ImageResource SlidePazzle.Images.06.png}"
+               Grid.Row="1" Grid.Column="1"/>
+
+        <Image Source="{local:ImageResource SlidePazzle.Images.07.png}"
+               Grid.Row="1" Grid.Column="2"/>
+
+        <Image Source="{local:ImageResource SlidePazzle.Images.08.png}"
+               Grid.Row="1" Grid.Column="3"/>
+
+        <Image Source="{local:ImageResource SlidePazzle.Images.09.png}"
+               Grid.Row="2" Grid.Column="0"/>
+
+        <Image Source="{local:ImageResource SlidePazzle.Images.10.png}"
+               Grid.Row="2" Grid.Column="1"/>
+
+        <Image Source="{local:ImageResource SlidePazzle.Images.11.png}"
+               Grid.Row="2" Grid.Column="2"/>
+
+        <Image Source="{local:ImageResource SlidePazzle.Images.12.png}"
+               Grid.Row="2" Grid.Column="3"/>
+
+        <Image Source="{local:ImageResource SlidePazzle.Images.13.png}"
+               Grid.Row="3" Grid.Column="0"/>
+
+        <Image Source="{local:ImageResource SlidePazzle.Images.14.png}"
+               Grid.Row="3" Grid.Column="1"/>
+
+        <Image Source="{local:ImageResource SlidePazzle.Images.15.png}"
+               Grid.Row="3" Grid.Column="2"/>
+
+        <Image Source="{local:ImageResource SlidePazzle.Images.16.png}"
+               Grid.Row="3" Grid.Column="3"/>
+    </Grid>
 </ContentPage>
