@@ -14,6 +14,7 @@ namespace SlidePazzle
         public MainPage()
         {
             InitializeComponent();
+            InitializePanel();
             player.Load("cursor7.mp3");
         }
 
@@ -24,8 +25,17 @@ namespace SlidePazzle
 
         void InitializePanel()
         {
-            Panel[] panels = new Panel[15];
+            var panels = new List<Panel>();
             var array = Enumerable.Range(0, 15).OrderBy(i => Guid.NewGuid()).ToArray();
+
+            foreach (var panel in grid.Children)
+            {
+                panels.Add((Panel)panel); 
+            }
+            for (int i = 0; i < 15; i++)
+            {
+                
+            }
         }
 	}
 }

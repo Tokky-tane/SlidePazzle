@@ -7,32 +7,34 @@ namespace SlidePazzle
 {
     public class Panel : Image
     {
+        public int CurrentPositon { get; set; }
+
+        public int Row => (int)((CurrentPositon + 0.2) % 4);
+
+        public int Column => (int)((CurrentPositon + 0.2) / 4);
+
+
+
         public int DefaultPosition { get; private set; }
 
-        public int CurrentPositon { get; set; }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
         public static readonly BindableProperty DefaultPositionProperty =
-            BindableProperty.Create("DefaultPosition", typeof(int), typeof(Panel), 2,propertyChanged: OnDefaultPositionChanged);
+            BindableProperty.Create("DefaultPosition", typeof(int), typeof(Panel), -1, propertyChanged: OnDefaultPositionChanged);
 
-        static void OnDefaultPositionChanged(BindableObject bindable,object oldValue,object newValue)
+        static void OnDefaultPositionChanged(BindableObject bindable, object oldValue, object newValue)
         {
             ((Panel)bindable).DefaultPosition = (int)newValue;
         }
 
-        public int Row
+        public void Exchange(Panel panel)
         {
-            get
-            {
-                return (int)((CurrentPositon + 0.2) % 4);
-            }
-        }
+            var positionTemp = CurrentPositon;
+            var sourceTemp = Source;
 
-        public int Column
-        {
-            get
-            {
-                return (int)((CurrentPositon + 0.2) / 4);
-            }
+            CurrentPositon = panel.CurrentPositon;
+            Source = panel.Source;
+
+            panel.CurrentPositon = positionTemp;
+            panel.Source = sourceTemp;
         }
     }
 }
