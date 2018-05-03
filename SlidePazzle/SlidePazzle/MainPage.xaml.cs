@@ -8,18 +8,24 @@ using Plugin.SimpleAudioPlayer;
 
 namespace SlidePazzle
 {
-	public partial class MainPage : ContentPage
-	{
+    public partial class MainPage : ContentPage
+    {
         ISimpleAudioPlayer player = CrossSimpleAudioPlayer.Current;
         public MainPage()
-		{
-			InitializeComponent();
+        {
+            InitializeComponent();
             player.Load("cursor7.mp3");
         }
 
-        void OnPanelTapped(object sender,EventArgs eventArgs)
+        void OnPanelTapped(object sender, EventArgs eventArgs)
         {
             player.Play();
+        }
+
+        void InitializePanel()
+        {
+            Panel[] panels = new Panel[15];
+            var array = Enumerable.Range(0, 15).OrderBy(i => Guid.NewGuid()).ToArray();
         }
 	}
 }
