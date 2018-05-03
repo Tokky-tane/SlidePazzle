@@ -26,15 +26,18 @@ namespace SlidePazzle
         void InitializePanel()
         {
             var panels = new List<Panel>();
-            var array = Enumerable.Range(0, 15).OrderBy(i => Guid.NewGuid()).ToArray();
 
             foreach (var panel in grid.Children)
             {
                 panels.Add((Panel)panel); 
             }
+            panels.OrderBy(i => i.DefaultPosition);
+
+            var sead = Enumerable.Range(0, 15).OrderBy(i => Guid.NewGuid()).ToArray();
+
             for (int i = 0; i < 15; i++)
             {
-                
+                panels[i].Exchange(panels[sead[i]]);
             }
         }
 	}

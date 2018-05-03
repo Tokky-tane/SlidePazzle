@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:SlidePazzle"
              x:Class="SlidePazzle.MainPage">
 
-    <Grid x:Name="grid">
+    <Grid x:Name="grid" BackgroundColor="Black">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
