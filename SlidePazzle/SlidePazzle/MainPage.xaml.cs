@@ -24,6 +24,11 @@ namespace SlidePazzle
             player.Play();
         }
 
+        void Restart()
+        {
+            SetGrid(GetSead());
+        }
+
         void InitializePanel()
         {
             foreach (var panel in grid.Children)
