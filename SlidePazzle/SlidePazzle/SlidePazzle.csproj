@@ -5,6 +5,47 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\01.png" />
+    <None Remove="Images\02.png" />
+    <None Remove="Images\03.png" />
+    <None Remove="Images\04.png" />
+    <None Remove="Images\05.png" />
+    <None Remove="Images\06.png" />
+    <None Remove="Images\07.png" />
+    <None Remove="Images\08.png" />
+    <None Remove="Images\09.png" />
+    <None Remove="Images\10.png" />
+    <None Remove="Images\11.png" />
+    <None Remove="Images\12.png" />
+    <None Remove="Images\13.png" />
+    <None Remove="Images\14.png" />
+    <None Remove="Images\15.png" />
+    <None Remove="Images\16.png" />
+    <None Remove="Images\empty.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\01.png" />
+    <EmbeddedResource Include="Images\02.png" />
+    <EmbeddedResource Include="Images\03.png" />
+    <EmbeddedResource Include="Images\04.png" />
+    <EmbeddedResource Include="Images\05.png" />
+    <EmbeddedResource Include="Images\06.png" />
+    <EmbeddedResource Include="Images\07.png" />
+    <EmbeddedResource Include="Images\08.png" />
+    <EmbeddedResource Include="Images\09.png" />
+    <EmbeddedResource Include="Images\10.png" />
+    <EmbeddedResource Include="Images\11.png" />
+    <EmbeddedResource Include="Images\12.png" />
+    <EmbeddedResource Include="Images\13.png" />
+    <EmbeddedResource Include="Images\14.png" />
+    <EmbeddedResource Include="Images\15.png" />
+    <EmbeddedResource Include="Images\16.png" />
+    <EmbeddedResource Include="Images\empty.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xam.Plugin.SimpleAudioPlayer" Version="1.1.0" />
     <PackageReference Include="Xamarin.Forms" Version="2.5.0.280555" />
   </ItemGroup>
 
