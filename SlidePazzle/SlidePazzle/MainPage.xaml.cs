@@ -28,8 +28,13 @@ namespace SlidePazzle
             panels = panels.OrderBy(i => i.Number).ToList();
 
             SetGrid(GetSead());
-        } 
-        
+        }
+
+        void Restart()
+        {
+            SetGrid(GetSead());
+        }
+
         int[] GetSead()
         {
             int[] sead;
@@ -59,10 +64,7 @@ namespace SlidePazzle
             }
         }
 
-        void Restart()
-        {
-            SetGrid(GetSead());
-        }
+
 
         bool IsOposite(int[] sead)
         {
