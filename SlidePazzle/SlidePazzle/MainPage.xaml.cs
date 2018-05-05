@@ -27,12 +27,8 @@ namespace SlidePazzle
             }
             panels = panels.OrderBy(i => i.Number).ToList();
 
-            SetGrid(GetSead());
-        }
-
-        void Restart()
-        {
-            SetGrid(GetSead());
+            SetList(GetSead());
+            SetGrid();
         }
 
         int[] GetSead()
@@ -46,15 +42,8 @@ namespace SlidePazzle
             return sead;
         }
 
-        void SetGrid(int[] sead)
+        void SetGrid()
         {
-            for (int i = 0; i < 15; i++)
-            {
-                var temp = panels[i];
-                panels[i] = panels[sead[i]];
-                panels[sead[i]] = temp;
-            }
-
             grid.Children.Clear();
 
             grid.Children.Add(panels[0], 0, 0);
@@ -64,7 +53,15 @@ namespace SlidePazzle
             }
         }
 
-
+        void SetList(int[] sead)
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                var temp = panels[i];
+                panels[i] = panels[sead[i]];
+                panels[sead[i]] = temp;
+            }
+        }
 
         bool IsOposite(int[] sead)
         {
@@ -95,28 +92,10 @@ namespace SlidePazzle
             }
         }
 
-        bool IsClear()
+        bool CanMove(int tappedIndex,int emptyIndex)
         {
-            var numbers = panels.Select(x => x.Number);
-            var y = Enumerable.Range(0, 16);
-
-            if (numbers == y)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        bool CanMove(Panel tappedPanel)
-        {
-            var emptyLocate = panels.FindIndex(x => x.Number == 15);
-            var tappedLocate = panels.FindIndex(x => x == tappedPanel);
-
-            var RowSub = GetRow(emptyLocate) - GetRow(tappedLocate);
-            var ColumnSub = GetColumn(emptyLocate) - GetColumn(tappedLocate);
+            var RowSub = GetRow(emptyIndex) - GetRow(tappedIndex);
+            var ColumnSub = GetColumn(emptyIndex) - GetColumn(tappedIndex);
 
             if ((Math.Abs(RowSub + ColumnSub) == 1) && (RowSub == 0 || ColumnSub == 0))
             {
@@ -140,8 +119,14 @@ namespace SlidePazzle
 
         void OnPanelTapped(object sender, EventArgs eventArgs)
         {
-            if (CanMove((Panel)sender))
+            var emptyIndex = panels.FindIndex(x => x.Number == 15);
+            var tappedIndex = panels.FindIndex(x => x == (Panel)sender);
+            if (CanMove(tappedIndex, emptyIndex))
             {
+                var temp = panels[emptyIndex];
+                panels[emptyIndex] = panels[tappedIndex];
+                panels[tappedIndex] = temp;
+                SetGrid();
                 player.Play();
             }
         }

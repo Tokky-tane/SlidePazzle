@@ -126,7 +126,7 @@
             </Image.GestureRecognizers>
         </local:Panel>
 
-        <local:Panel Number="15" Source="{local:ImageResource SlidePazzle.Images.16.png}"
+        <local:Panel Number="15" Source="{local:ImageResource SlidePazzle.Images.empty.png}"
                Grid.Row="3" Grid.Column="3">
             <Image.GestureRecognizers>
                 <TapGestureRecognizer Tapped="OnPanelTapped"/>
