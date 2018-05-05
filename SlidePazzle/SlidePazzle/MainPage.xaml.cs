@@ -21,7 +21,10 @@ namespace SlidePazzle
 
         void OnPanelTapped(object sender, EventArgs eventArgs)
         {
-            player.Play();
+            if (CanMove((Panel)sender))
+            {
+                player.Play();
+            }
         }
 
         void Restart()
@@ -98,5 +101,47 @@ namespace SlidePazzle
             }
         }
 
+        bool IsClear()
+        {
+            var numbers = panels.Select(x => x.Number);
+            var y = Enumerable.Range(0, 16);
+
+            if (numbers == y)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        bool CanMove(Panel tappedPanel)
+        {
+            var emptyLocate = panels.FindIndex(x => x.Number == 15);
+            var tappedLocate = panels.FindIndex(x => x == tappedPanel);
+
+            var RowSub = GetRow(emptyLocate) - GetRow(tappedLocate);
+            var ColumnSub = GetColumn(emptyLocate) - GetColumn(tappedLocate);
+
+            if ((Math.Abs(RowSub + ColumnSub) == 1) && (RowSub == 0 || ColumnSub == 0))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        int GetRow(int locate)
+        {
+            return (int)((locate + 0.2) % 4);
+        }
+
+        int GetColumn(int locate)
+        {
+            return (int)((locate + 0.2) / 4);
+        }
 	}
 }
