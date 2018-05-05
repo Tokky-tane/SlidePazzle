@@ -19,19 +19,6 @@ namespace SlidePazzle
             player.Load("cursor7.mp3");
         }
 
-        void OnPanelTapped(object sender, EventArgs eventArgs)
-        {
-            if (CanMove((Panel)sender))
-            {
-                player.Play();
-            }
-        }
-
-        void Restart()
-        {
-            SetGrid(GetSead());
-        }
-
         void InitializePanel()
         {
             foreach (var panel in grid.Children)
@@ -41,6 +28,17 @@ namespace SlidePazzle
             panels = panels.OrderBy(i => i.Number).ToList();
 
             SetGrid(GetSead());
+        } 
+        
+        int[] GetSead()
+        {
+            int[] sead;
+            do
+            {
+                sead = Enumerable.Range(0, 15).OrderBy(i => Guid.NewGuid()).ToArray();
+            } while (!IsOposite(sead.ToArray()));
+
+            return sead;
         }
 
         void SetGrid(int[] sead)
@@ -61,15 +59,9 @@ namespace SlidePazzle
             }
         }
 
-        int[] GetSead()
+        void Restart()
         {
-            int[] sead;
-            do
-            {
-                sead = Enumerable.Range(0, 15).OrderBy(i => Guid.NewGuid()).ToArray();
-            } while (!IsOposite(sead.ToArray()));
-
-            return sead;
+            SetGrid(GetSead());
         }
 
         bool IsOposite(int[] sead)
@@ -142,6 +134,14 @@ namespace SlidePazzle
         int GetColumn(int locate)
         {
             return (int)((locate + 0.2) / 4);
+        }
+
+        void OnPanelTapped(object sender, EventArgs eventArgs)
+        {
+            if (CanMove((Panel)sender))
+            {
+                player.Play();
+            }
         }
 	}
 }
